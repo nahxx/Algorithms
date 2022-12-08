@@ -9,8 +9,6 @@ import java.io.OutputStreamWriter;
 public class Main8 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		/*
-		 * 푸는중
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
@@ -19,16 +17,16 @@ public class Main8 {
 			arr[i] = br.readLine();
 			int sum = 0;
 			for(int j = 0; j < arr[i].length(); j++) {
+				int cnt = 0;
 				if(arr[i].charAt(j) == 'O') {
-					int cnt = 0;
 					for(int k = j; k >= 0; k--) {
 						if(arr[i].charAt(k) == 'O') {
 							cnt++;
 						} else {
-							sum += cnt;
 							break;
 						}
 					}
+					sum += cnt;
 				}
 			}
 			bw.write(sum + "\n");
@@ -36,7 +34,7 @@ public class Main8 {
 		bw.flush();
 		bw.close();
 		br.close();
-		*/
+		
 	}
 
 }
