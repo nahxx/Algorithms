@@ -9,43 +9,31 @@ public class Main3 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		int cnt = 0;
-		while(n != 0) {
-			n -= (n-1);
-			cnt++;
+		int plus = 1;
+		int num = 0;
+		String fraction = "";
+		while(num < n) {
+			num += plus;
+			plus++;
 		}
-		
-		
-		/*
-		String[] arr = new String[Integer.parseInt(br.readLine())];
-		int cnt = 1;
-		
-		for(int i = 0; i < arr.length; i++) {
-			if(arr[i] != null) continue;
-			cnt++;
-			int n1 = 0;
-			int n2 = 0;
-			for(int j = 0; j < cnt - 1; j++) {
-				if(cnt % 2 == 0) {
-					n2 = j + 1;
-					n1 = cnt - n2;
+		int j = 0;
+		for(int i = (num - (plus - 2)); i <= num; i++) {
+			j++;
+			if(i == n) {
+				int n1 = 0;
+				int n2 = 0;
+				if(plus % 2 == 0) {
+					n1 = plus - j;
+					n2 = j;
 				} else {
-					n1 = j + 1;
-					n2 = cnt - n1;
+					n1 = j;
+					n2 = plus - j;
 				}
-				
-				arr[i+j] = n1 + "/" + n2;
-				
-				System.out.println(arr[i+j]);
-				if(i+j == arr.length - 1) {
-					break;
-				}
+				fraction = n1 + "/" + n2;
+				break;
 			}
-			
 		}
-		
-		System.out.println(arr[arr.length-1]);
-		*/
+		System.out.println(fraction);
 	}
 
 }
