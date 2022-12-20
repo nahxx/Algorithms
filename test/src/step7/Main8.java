@@ -11,6 +11,7 @@ public class Main8 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		/*
 		String s1 = st.nextToken();
 		String s2 = st.nextToken();
 		
@@ -38,13 +39,12 @@ public class Main8 {
 		for(int n : arr) {
 			System.out.print(String.valueOf(n));
 		}
+		*/
 		
-		/*
 		// BigInteger 사용하여 풀이
 		BigInteger n = new BigInteger(st.nextToken());
 		n = n.add(new BigInteger(st.nextToken()));
 		System.out.println(n);
-		*/
 	}
 
 }
