@@ -52,7 +52,7 @@ public class Main6 {
 				if(i_value != arr[j]) {
 					break;
 				}
-				count++;
+				cnt++;
 				jump++;
 			}
 			
@@ -61,10 +61,8 @@ public class Main6 {
 				mode = i_value;
 				flag = true;
 			} else if(cnt == mode_max && flag == true) {
-				System.out.println("mode: " + mode);
 				mode = i_value;
 				flag = false;
-				System.out.println("mode2: " + mode);
 			}
 			
 			i += jump;
