@@ -25,6 +25,27 @@ public class Main12 {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 		
+		// 두번째 방법
+		result = arr.clone();
+		Arrays.sort(arr);
+		
+		int cnt = 0;
+		HashMap<Integer, Integer> map = new HashMap<>();
+		for(int i = 0; i < arr.length; i++) {
+			if(!map.containsKey(arr[i])) {
+				map.put(arr[i], cnt++);
+			}
+		}
+		
+		for(int i = 0; i < result.length; i++) {
+			bw.write(map.get(result[i]) + " ");
+		}
+		bw.flush();
+		bw.close();
+		br.close();
+		
+		/*
+		// 첫번째 방법
 		HashSet<Integer> set = new HashSet<>(Arrays.asList(arr));
 		result = set.toArray(new Integer[0]);
 		
@@ -42,6 +63,7 @@ public class Main12 {
 		bw.flush();
 		bw.close();
 		br.close();
+		*/
 	}
 
 }

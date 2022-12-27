@@ -29,12 +29,16 @@ public class Main11 {
 
 			@Override
 			public int compare(String[] o1, String[] o2) {
+				System.out.println(o1[0] + " - " + o2[0] + " = " + (Integer.parseInt(o1[0]) - Integer.parseInt(o2[0])));
+				return Integer.parseInt(o1[0]) - Integer.parseInt(o2[0]);
+				/*
 				if(Integer.parseInt(o1[0]) < Integer.parseInt(o2[0])) {
 					return -1;
 				} else if(Integer.parseInt(o1[0]) > Integer.parseInt(o2[0])) {
 					return 1;
 				}
 				return 0;
+				*/
 			}
 		});
 		
