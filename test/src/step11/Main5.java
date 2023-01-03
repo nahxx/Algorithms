@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Main5 {
-	static String star = "";
+	static char[][] arr;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		/* 별찍기
@@ -21,46 +21,58 @@ public class Main5 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
+		arr = new char[n][n];
 		
-		String s = star(n);
-		System.out.print(s);
+		drawStar(0, 0, n, false);
 		
-		/*
-		int[][] arr = new int[n][n];
 		for(int i = 0; i < arr.length; i++) {
 			for(int j = 0; j < arr[i].length; j++) {
-				int check = n / 3;
-				if((i > (check - 1) && i < (check * 2)) && (j > (check - 1) && j < (check * 2))) {
-					System.out.print(" ");
-				} else {
-					System.out.print("*");
-				}
+				bw.write(arr[i][j] + "");
 			}
-			System.out.println();
+			bw.write("\n");
 		}
-		*/
+		bw.flush();
+		bw.close();
+		br.close();
 	}
 	
-	public static String star(int n) {
-		while(n >= 3) {
-			int[][] arr = new int[n][n];
-			
-			for(int i = 0; i < arr.length; i++) {
-				for(int j = 0; j < arr[i].length; j++) {
-					int check = n / 3;
-					if((i > (check - 1) && i < (check * 2)) && (j > (check - 1) && j < (check * 2))) {
-						star += " ";
-					} else {
-						star += "*";
-					}
+	public static void drawStar(int x, int y, int n, boolean blank) {
+		if(blank) {
+			// 공백일 경우
+			for(int i = x; i < x + n; i++) {
+				for(int j = y; j < y + n; j++) {
+					arr[i][j] = ' ';
 				}
-				star += "\n";
 			}
-			
-			n /= 3;
+			return;
 		}
-		return star;
-
+		
+		// 더이상 블록을 쪼갤 수 없을 때
+		if(n == 1) {
+			arr[x][y] = '*';
+			return;
+		}
+		
+		/* 
+		N=27 일 경우 한 블록의 사이즈는 9이고,
+		N=9 일 경우 한 블록의 사이즈는 3이듯
+		해당 블록의 한 칸을 담을 변수를 의미 size
+	    
+		cnt는 별 출력 누적 합을 의미하는 변수
+		*/
+		int size = n / 3;
+		int cnt = 0;
+		
+		for(int i = x; i < x + n; i += size) {
+			for(int j = y; j < y + n; j += size) {
+				cnt++;
+				if(cnt == 5) {
+					drawStar(i, j, size, true);
+				} else {
+					drawStar(i, j, size, false);
+				}
+			}
+		}
 	}
 
 }
